@@ -1,0 +1,46 @@
+﻿<Window x:Class="HumidityW10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumidityW10"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Humidity Calculator" Height="400" Width="800"
+        FontFamily="Calibri"
+        FontSize="15"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Content="Pressure (hPa)" VerticalAlignment="Top" Width="138"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Column="1" Height="30" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding Path=Pressure}" VerticalAlignment="Top"/>
+        <Label Content="Temperature" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="138"/>
+        <Label Content="INSIDE"   Grid.Column="1" HorizontalAlignment="Left" Margin="10" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="139" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#FFA42828"/>
+        <Label Content="OUTSIDE" Grid.Column="2" HorizontalAlignment="Left" Margin="10" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="138" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="MasterText" Text="{Binding Path=MasterTextString}" HorizontalAlignment="Left" Margin="10,10,10,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="150" Width="772" FontSize="16"></TextBlock>
+        <Label Content="Humidity" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="30" Width="138"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=InsideTemperature}" VerticalAlignment="Top" Width="139"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=OutsideTemperature}" VerticalAlignment="Top" Width="138"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=InsideHumidity}" VerticalAlignment="Top" Width="139"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=OutsideHumidity}" VerticalAlignment="Top" Width="138"/>
+        <Button Content="CALCULATE" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
+        <TextBlock x:Name="ResultTextBlock" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Path=ResultTextString}" VerticalAlignment="Top" Height="180" Grid.RowSpan="4" Width="297" FontSize="16" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.Column="1" HorizontalAlignment="Left" Height="150" Grid.Row="1" VerticalAlignment="Top" Width="159" Grid.RowSpan="3"/>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.Column="2" HorizontalAlignment="Left" Height="150" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Width="158"/>
+
+    </Grid>
+</Window>
