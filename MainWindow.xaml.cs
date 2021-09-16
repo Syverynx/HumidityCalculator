@@ -56,7 +56,7 @@ namespace HumidityW10
                 {
                     return "You will dehumidify your room by airing it";
                 }
-                else if (humidityin > humidityout)
+                else if (humidityin < humidityout)
                 {
                     return "You will humidify your room by airing it";
                 }
